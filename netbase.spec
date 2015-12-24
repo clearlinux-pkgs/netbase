@@ -6,7 +6,6 @@ Summary:        Basic TCP/IP networking support
 Url:            http://packages.debian.org/netbase
 Group:          base
 Source0:        ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_5.3.tar.xz
-BuildArch:      noarch
 BuildRequires:  filesystem >= 3.0.14-44
 Requires:       filesystem >= 3.0.14-44
 Requires:       nss-altfiles
