@@ -9,12 +9,14 @@ Source0:        ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_5.3.tar.
 BuildRequires:  filesystem >= 3.0.14-44
 Requires:       filesystem >= 3.0.14-44
 Requires:       nss-altfiles
+Patch1:         0001-Use-rpcbind-for-sunrpc-services.patch
 
 %description
 Basic TCP/IP networking support.
 
 %prep
 %setup -q
+%patch1 -p1
 
 %build
 
