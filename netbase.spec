@@ -1,6 +1,6 @@
 Name:           netbase
 Version:        5.3
-Release:        9
+Release:        10
 License:        GPL-2.0
 Summary:        Basic TCP/IP networking support
 Url:            http://packages.debian.org/netbase
