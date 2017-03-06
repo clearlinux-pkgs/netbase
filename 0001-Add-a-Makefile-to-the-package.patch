@@ -1,0 +1,33 @@
+From 4a011df4f03eec6e534050a5367a45d20604fbfe Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <michael.i.doherty@intel.com>
+Date: Mon, 6 Mar 2017 15:36:29 +0000
+Subject: [PATCH 1/2] Add a Makefile to the package
+
+Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
+---
+ Makefile | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+ create mode 100644 Makefile
+
+diff --git a/Makefile b/Makefile
+new file mode 100644
+index 0000000..a5f602e
+--- /dev/null
++++ b/Makefile
+@@ -0,0 +1,13 @@
++.DEFAULT_GOAL := all
++
++PREFIX ?= /usr
++DATADIR ?= $(PREFIX)/share
++INSTDIR ?= $(DATADIR)/defaults/etc
++
++install:
++	test -d $(DESTDIR)$(INSTDIR) || install -d $(DESTDIR)$(INSTDIR); \
++	install -m 0644 etc-protocols $(DESTDIR)$(INSTDIR)/protocols; \
++	install -m 0644 etc-services $(DESTDIR)$(INSTDIR)/services;
++
++.phony:
++all: .phony
+-- 
+2.12.0
+

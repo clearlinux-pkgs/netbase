@@ -1,0 +1,28 @@
+From 0ee902000f6d40cbf5d65b9e77a57c7aea51ce24 Mon Sep 17 00:00:00 2001
+From: Ikey Doherty <michael.i.doherty@intel.com>
+Date: Mon, 6 Mar 2017 15:40:19 +0000
+Subject: [PATCH 2/2] Use rpcbind for sunrpc services
+
+Signed-off-by: Ikey Doherty <michael.i.doherty@intel.com>
+---
+ etc-services | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/etc-services b/etc-services
+index e3202ec..21e56e2 100644
+--- a/etc-services
++++ b/etc-services
+@@ -64,8 +64,8 @@ csnet-ns	105/udp		cso-ns
+ rtelnet		107/tcp				# Remote Telnet
+ rtelnet		107/udp
+ pop3		110/tcp		pop-3		# POP version 3
+-sunrpc		111/tcp		portmapper	# RPC 4.0 portmapper
+-sunrpc		111/udp		portmapper
++sunrpc		111/tcp		rpcbind	        # RPC 4.0 portmapper
++sunrpc		111/udp		rpcbind
+ auth		113/tcp		authentication tap ident
+ sftp		115/tcp
+ nntp		119/tcp		readnews untp	# USENET News Transfer Protocol
+-- 
+2.12.0
+
