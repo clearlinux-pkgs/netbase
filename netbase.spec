@@ -4,7 +4,7 @@
 #
 Name     : netbase
 Version  : 5.4
-Release  : 12
+Release  : 13
 URL      : ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_5.4.tar.xz
 Source0  : ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_5.4.tar.xz
 Summary  : No detailed summary available
