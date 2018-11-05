@@ -4,13 +4,14 @@
 #
 Name     : netbase
 Version  : 5.4
-Release  : 16
-URL      : ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_5.4.tar.xz
-Source0  : ftp://ftp.debian.org/debian/pool/main/n/netbase/netbase_5.4.tar.xz
+Release  : 17
+URL      : http://http.debian.net/debian/pool/main/n/netbase/netbase_5.4.tar.xz
+Source0  : http://http.debian.net/debian/pool/main/n/netbase/netbase_5.4.tar.xz
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GPL-2.0
-Requires: netbase-data
+Requires: netbase-data = %{version}-%{release}
+Requires: netbase-license = %{version}-%{release}
 Patch1: 0001-Add-a-Makefile-to-the-package.patch
 Patch2: 0002-Use-rpcbind-for-sunrpc-services.patch
 
@@ -25,19 +26,32 @@ Group: Data
 data components for the netbase package.
 
 
+%package license
+Summary: license components for the netbase package.
+Group: Default
+
+%description license
+license components for the netbase package.
+
+
 %prep
 %setup -q -n netbase-5.4
 %patch1 -p1
 %patch2 -p1
 
 %build
+export http_proxy=http://127.0.0.1:9/
+export https_proxy=http://127.0.0.1:9/
+export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1488814995
-make V=1  %{?_smp_mflags}
+export SOURCE_DATE_EPOCH=1541398888
+make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1488814995
+export SOURCE_DATE_EPOCH=1541398888
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/netbase
+cp debian/copyright %{buildroot}/usr/share/package-licenses/netbase/debian_copyright
 %make_install
 
 %files
@@ -47,3 +61,7 @@ rm -rf %{buildroot}
 %defattr(-,root,root,-)
 /usr/share/defaults/etc/protocols
 /usr/share/defaults/etc/services
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/netbase/debian_copyright
