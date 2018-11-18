@@ -1,3 +1,13 @@
+netbase (5.5) unstable; urgency=medium
+
+  * services: added ptp-event (319/udp), ptp-general (320/udp).
+    (Closes: #907045)
+  * Applied some packaging cleanup patches by Daniel Kahn Gillmor.
+    (Closes: #906989)
+  * Removed a broken link from /etc/services. (Closes: #907673)
+
+ -- Marco d'Itri <md@linux.it>  Sat, 17 Nov 2018 02:50:53 +0100
+
 netbase (5.4) unstable; urgency=medium
 
   * Stopped recommending ifupdown because nowadays there are options.
@@ -158,7 +168,7 @@ netbase (4.38) unstable; urgency=low
   * Made the init script check for swap over the network. (Closes: #540697)
   * Temporarily depend on initscripts to work around a bug in multistrap.
     (Closes: #556399)
-  * etc-services: added sieve (4190/tcp). 
+  * etc-services: added sieve (4190/tcp).
   * etc-services: removed sieve (2000/tcp). (Closes: #555664)
   * Made the init script warn that using the force-reload and restart
     parameters is not a good idea. (Closes: #550240)
