@@ -1,3 +1,18 @@
+netbase (5.6) unstable; urgency=medium
+
+  * services: added domain-s (853). (Closes: #914881)
+  * services: renamed urd (465/tcp) to submissions. The old name is kept
+    as an alias. (Closes: #916633)
+  * services: renamed loc-srv (135) to epmap, which is the official name.
+    The old name is kept as an alias.
+  * services: removed some historical or not actually used ports:
+    re-mail-ck (50), tacacs-ds (65), bootps (67/tcp), bootpc (68/tcp),
+    linuxconf (98/tcp), supdup (95/tcp), hostnames (101/tcp),
+    acr-nema (104/udp), csnet-ns (105), rtelnet (107), ntp (123/tcp),
+    pwdgen (129).
+
+ -- Marco d'Itri <md@linux.it>  Sun, 10 Feb 2019 03:05:36 +0100
+
 netbase (5.5) unstable; urgency=medium
 
   * services: added ptp-event (319/udp), ptp-general (320/udp).
