@@ -1,7 +1,7 @@
 # This file contains recursive sources that require this package
-compat-python36
 filesystem
 go
 perl
 python
 python3
+python37

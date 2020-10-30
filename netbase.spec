@@ -4,7 +4,7 @@
 #
 Name     : netbase
 Version  : 5.6
-Release  : 19
+Release  : 20
 URL      : https://mirrors.kernel.org/debian/pool/main/n/netbase/netbase_5.6.tar.xz
 Source0  : https://mirrors.kernel.org/debian/pool/main/n/netbase/netbase_5.6.tar.xz
 Summary  : No detailed summary available
@@ -36,6 +36,7 @@ license components for the netbase package.
 
 %prep
 %setup -q -n netbase-5.6
+cd %{_builddir}/netbase-5.6
 %patch1 -p1
 %patch2 -p1
 
@@ -43,16 +44,21 @@ license components for the netbase package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1549923636
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1604085120
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 
 %install
-export SOURCE_DATE_EPOCH=1549923636
+export SOURCE_DATE_EPOCH=1604085120
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/netbase
-cp debian/copyright %{buildroot}/usr/share/package-licenses/netbase/debian_copyright
+cp %{_builddir}/netbase-5.6/debian/copyright %{buildroot}/usr/share/package-licenses/netbase/473b4254e3bb9789f056d2ffbf21b5a855813f2a
 %make_install
 
 %files
@@ -65,4 +71,4 @@ cp debian/copyright %{buildroot}/usr/share/package-licenses/netbase/debian_copyr
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/netbase/debian_copyright
+/usr/share/package-licenses/netbase/473b4254e3bb9789f056d2ffbf21b5a855813f2a
